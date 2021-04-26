@@ -1,3 +1,4 @@
 ﻿  Main.cpp
-C:\C++\lab_op_2\lab_op_2\Main.cpp(36,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\C++\lab_op_2\lab_op_2\Main.cpp(38,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\C++\lab_op_2\lab_op_2\Main.cpp(84,23): warning C4018: <: несоответствие типов со знаком и без знака
   lab_op_2.vcxproj -> C:\C++\lab_op_2\Debug\lab_op_2.exe
