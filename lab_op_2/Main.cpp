@@ -6,6 +6,7 @@ using namespace std;
 
 string* ReadTeams(string file1, string file2, int kilk);
 int* ReadResults(string file1, string file2, int kilk);
+void SortTable(string* mas_t, int* mas_r, int kilk);
 void Out(int* mas, int kilk);
 
 int main()
@@ -16,6 +17,7 @@ int main()
 	string path_res = "result.csv";
 	string* mas_teams = ReadTeams(path_file1, path_file2, teams);
 	int* mas_reults = ReadResults(path_file1, path_file2, teams);
+	SortTable(mas_teams, mas_reults, teams);
 	/*Out(mas_reults, teams);*/
 }
 
@@ -98,7 +100,7 @@ int* ReadResults(string file1, string file2, int kilk)
 								sum += 1;
 								s_team = "";
 							}
-							else s_team = "";;
+							else s_team = "";
 						}
 					}
 				}
@@ -110,4 +112,23 @@ int* ReadResults(string file1, string file2, int kilk)
 		fIn.close();
 	}
 	return mas;
+}
+
+void SortTable(string* mas_t, int* mas_r, int kilk)
+{
+	for (int i = kilk - 1; i >= 0; i--)
+	{
+		for (int k = i - 1; k >= 0; k--)
+		{
+			if (mas_r[i] > mas_r[k])
+			{
+				int temp1 = mas_r[i];
+				mas_r[i] = mas_r[k];
+				mas_r[k] = temp1;
+				string temp2 = mas_t[i];
+				mas_t[i] = mas_t[k];
+				mas_t[k] = temp2;
+			}
+		}
+	}
 }
