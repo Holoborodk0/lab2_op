@@ -7,7 +7,7 @@ using namespace std;
 string* ReadTeams(string file1, string file2, int kilk);
 int* ReadResults(string file1, string file2, int kilk);
 void SortTable(string* mas_t, int* mas_r, int kilk);
-void Out(int* mas, int kilk);
+void Result(string* mas_t, int* mas_r, int kilk, string result);
 
 int main()
 {
@@ -18,7 +18,7 @@ int main()
 	string* mas_teams = ReadTeams(path_file1, path_file2, teams);
 	int* mas_reults = ReadResults(path_file1, path_file2, teams);
 	SortTable(mas_teams, mas_reults, teams);
-	/*Out(mas_reults, teams);*/
+	Result(mas_teams, mas_reults, teams, path_res);
 }
 
 string* ReadTeams(string file1, string file2, int kilk)
@@ -131,4 +131,19 @@ void SortTable(string* mas_t, int* mas_r, int kilk)
 			}
 		}
 	}
+}
+
+void Result(string* mas_t, int* mas_r, int kilk, string result)
+{
+	ofstream fOut(result);
+	if (!fOut.is_open()) cout << "Cannot open";
+	else
+	{
+		for (int i = 0; i < kilk; i++)
+		{
+			fOut << mas_t[i] << "  - " << mas_r[i] << "\n";
+		}
+		fOut << "---------------------------------------" << "\n\t\t\tWinner: " << mas_t[0];
+	}
+	fOut.close();
 }
